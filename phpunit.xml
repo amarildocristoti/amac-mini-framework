@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuração mínima e explícita para os testes do mini framework. -->
+<phpunit bootstrap="vendor/autoload.php" colors="true">
+    <!-- Procura testes somente na pasta dedicada. -->
+    <testsuites>
+        <testsuite name="Mini Framework">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

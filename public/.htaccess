@@ -1,0 +1,13 @@
+# Este .htaccess fica DENTRO da pasta public/ -- e o mais importante
+# dos dois. Ele manda TODAS as URLs (exceto arquivos/pastas que
+# realmente existem, tipo imagens ou CSS) para o index.php, que e
+# o unico "porteiro" da aplicacao (front controller).
+#
+# Sem isto, uma URL tipo /tasks/edit/5 daria erro 404 do Apache,
+# porque nao existe fisicamente uma pasta "tasks/edit/5" no disco --
+# quem entende essa URL e o nosso Router.php, nao o Apache.
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
