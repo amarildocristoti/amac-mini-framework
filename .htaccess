@@ -1,0 +1,23 @@
+# Ativa o mecanismo de reescrita do Apache.
+RewriteEngine On
+
+# Desativa listagem automática de diretórios.
+Options -Indexes
+
+# Bloqueia arquivos de configuração, dependências e scripts internos.
+<FilesMatch "^(\.env|composer\.(json|lock)|.*\.sql)$">
+    Require all denied
+</FilesMatch>
+
+# Bloqueia diretórios que nunca devem ser públicos.
+RewriteRule ^(?:config|src|tests|vendor)(?:/|$) - [F,L]
+
+# Encaminha a raiz diretamente para o front controller público.
+RewriteRule ^$ public/index.php [L]
+
+# Mantém arquivos públicos reais, como CSS e imagens.
+RewriteCond %{REQUEST_FILENAME} !-f
+# Mantém diretórios públicos reais.
+RewriteCond %{REQUEST_FILENAME} !-d
+# Envia qualquer outra URL para o front controller.
+RewriteRule ^(.*)$ public/index.php [QSA,L]
