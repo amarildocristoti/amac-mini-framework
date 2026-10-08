@@ -27,7 +27,8 @@ Duplicar o arquivo ".env.example" e renomear para ".env"
 Alterar no arquivo .env as credenciais do banco de dados
 Criar o banco de dados com a COLLACTION "utf8mb4_unicode_ci"
 Alterar no arquivo .env o endereço da aplicação na variável de ambiente APP_URL.
-Executar
+
+Executar 
 composer install
 composer validate --no-check-publish
 composer lint
