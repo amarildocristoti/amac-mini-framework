@@ -13,27 +13,27 @@ Base simples e reutilizável para aplicações web em **PHP puro**, com arquitet
 
 ## Requisitos
 
-PHP 8.1 ou superior, Composer e PDO com o driver do banco utilizado pela aplicação.
+* PHP 8.4 ou superior;
+* Apache;
+* rewrite_module ativo no Apache;
+* MySQL 8.0 ou superior;
+* Composer;
+* PDO com o driver do banco utilizado pela aplicação.
 
 ## Instalação
 
 ```bash
-cp .env.example .env
+Duplicar o arquivo ".env.example" e renomear para ".env"
+Alterar no arquivo .env as credenciais do banco de dados
+Criar o banco de dados com a COLLACTION "utf8mb4_unicode_ci"
+Alterar no arquivo .env o endereço da aplicação na variável de ambiente APP_URL.
+Executar
 composer install
 composer validate --no-check-publish
 composer lint
 composer test
-php -S localhost:8000 -t public
+php -S localhost:8000 -t public ou http://localhost/pasta-do-projeto/public 
 ```
-
-No Windows PowerShell, use os mesmos comandos dentro da pasta do projeto, substituindo apenas a cópia do ambiente quando necessário:
-
-```powershell
-Copy-Item .env.example .env
-composer install
-```
-
-Configure o `.env` antes de utilizar banco de dados. Nunca publique o `.env` real.
 
 ## Estrutura
 
