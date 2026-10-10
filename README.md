@@ -33,8 +33,10 @@ composer install
 composer validate --no-check-publish
 composer lint
 composer test
-php -S localhost:8000 -t public ou http://localhost/pasta-do-projeto/public 
+php -S localhost:8000 -t public
 ```
+
+Acesse o projeto pelo caminho http://localhost/pasta-do-seu-projeto/public caso esteja localmente.
 
 ## Estrutura
 
@@ -55,10 +57,10 @@ composer.lock           Versões fixadas das dependências
 
 ```php
 // Página de leitura.
-$router->get('/tasks', 'TaskController@index');
+$router->get('/users', 'UserController@index');
 
 // Operação de criação.
-$router->post('/tasks', 'TaskController@store');
+$router->post('/users/store', 'UserController@store');
 ```
 
 ## Segurança
